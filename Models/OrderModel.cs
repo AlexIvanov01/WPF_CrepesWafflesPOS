@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrepesWaffelsPOS.Model
+namespace CrepesWaffelsPOS.Models
 {
-    public class User
+    public class OrderModel
     {
-
     }
 }

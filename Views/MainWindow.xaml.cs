@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,17 +9,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CrepesWaffelsPOS.ViewModels;
+using CrepesWaffelsPOS.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CrepesWaffelsPOS.Views
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            InitializeComponent();
+            using (DataAccess da = new DataAccess())
+            {
+                da.Database.EnsureCreated();
+                InitializeComponent();
+                var viewModel = new MainWindowViewModel(da);
+                DataContext = viewModel;
+            }
         }
     }
 }
