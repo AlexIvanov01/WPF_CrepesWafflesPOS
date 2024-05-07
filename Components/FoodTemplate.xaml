@@ -6,30 +6,69 @@
     xmlns:local="clr-namespace:CrepesWaffelsPOS.Components"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Margin="10"
+    d:Background="Wheat"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*" />
-            <ColumnDefinition Width="50*" />
-        </Grid.ColumnDefinitions>
 
+    <Border BorderBrush="Black" BorderThickness="1">
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="50*" />
+            </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Text="Burger" />
-            <StackPanel Grid.Row="1">
-                <TextBlock Text="Price" />
-                <Button Background="Black" Content="Add" />
-                <TextBlock HorizontalAlignment="Center" Text="Count" />
-                <Button Background="Black" Content="Remove" />
+            <StackPanel Grid.Column="0">
+                <TextBlock
+                    Margin="5"
+                    HorizontalAlignment="Center"
+                    FontSize="16"
+                    Text="{Binding Name}" />
+                <d:TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="16"
+                    Text="Test" />
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="20"
+                        Text="{Binding Price}" />
+                    <d:TextBlock FontSize="20" Text="12" />
+                    <TextBlock FontSize="20" Text="$" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button
+                        Width="40"
+                        Height="40"
+                        Background="Red"
+                        Command="{Binding DecreaseCounterCommand}"
+                        Content="-"
+                        FontSize="30" />
+                    <TextBlock
+                        Margin="30"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Text="{Binding Counter, UpdateSourceTrigger=PropertyChanged}" />
+                    <d:TextBlock
+                        Margin="30"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Text="0" />
+                    <Button
+                        Width="40"
+                        Height="40"
+                        Background="Green"
+                        Command="{Binding IncrementCounterCommand}"
+                        Content="+"
+                        FontSize="30" />
+                </StackPanel>
             </StackPanel>
-        </Grid>
-        <Image Grid.Column="1" Source="C:\Програмиране\C#\MenuApp\MenuApp\Images\burger.jpg" />
 
-    </Grid>
+            <Image
+                Grid.Column="1"
+                MaxHeight="150"
+                Margin="10"
+                Source="C:\Програмиране\C#\MenuApp\MenuApp\Images\burger.jpg" />
+        </Grid>
+    </Border>
 </UserControl>

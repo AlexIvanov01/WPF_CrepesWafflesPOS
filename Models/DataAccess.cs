@@ -19,10 +19,12 @@ namespace CrepesWaffelsPOS.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<FoodModel>().Property(e => e.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<FoodModel>().Property(e => e.ID).ValueGeneratedOnAdd();
             var user = new FoodModel()
             {
-                Id = 1,
+                ID = 1,
+                Name = "Burger",
+                Price = 10
             };
 
             modelBuilder.Entity<FoodModel>()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CrepesWaffelsPOS.Models;
+using CrepesWaffelsPOS.ViewModels;
 
 namespace CrepesWaffelsPOS.Components
 {
@@ -20,9 +23,11 @@ namespace CrepesWaffelsPOS.Components
     /// </summary>
     public partial class FoodTemplate : UserControl
     {
-        public FoodTemplate()
+        public FoodTemplate(FoodModel food)
         {
             InitializeComponent();
+            var viewModel = new FoodTemplateViewModel(food);
+            DataContext = viewModel;
         }
     }
 }

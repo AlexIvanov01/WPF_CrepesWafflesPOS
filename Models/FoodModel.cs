@@ -5,6 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Diagnostics.Metrics;
+using System.Reflection;
+using System.Windows;
 
 namespace CrepesWaffelsPOS.Models
 {
@@ -20,7 +24,8 @@ namespace CrepesWaffelsPOS.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id;
-
+        public int ID { get; set; }
+        public string Name { get; set; } = "Default";
+        public double Price { get; set; } = 0;
     }
 }

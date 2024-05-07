@@ -60,7 +60,7 @@
                 <ItemsControl ItemsSource="{Binding Foods}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <local2:FoodTemplate />
+                           <!-- <local2:FoodTemplate /> -->
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
