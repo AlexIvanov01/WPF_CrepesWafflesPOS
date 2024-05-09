@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using CrepesWaffelsPOS.Commands;
 using CrepesWaffelsPOS.Models;
 
@@ -16,16 +18,10 @@ namespace CrepesWaffelsPOS.ViewModels
 {
     public class FoodTemplateViewModel : INotifyPropertyChanged
     {
-        private FoodModel _food;
-        public string Name => _food.Name;
-        public double Price => _food.Price;
         private int _couneter = 0;
-
-        public FoodModel Food
-        {
-            get { return _food; }
-            set { _food = value; }
-        }
+        public string Name => Food.Name;
+        public double Price => Food.Price;
+        public FoodModel Food { get; set; }
         public int Counter
         {
             get { return _couneter; }
@@ -38,7 +34,7 @@ namespace CrepesWaffelsPOS.ViewModels
 
         public FoodTemplateViewModel(FoodModel food)
         {
-            _food = food;
+            Food = food;
             IncrementCounterCommand = new FoodTemplateIncrementCounterCommand(this);
             DecreaseCounterCommand = new FoodTemplateDecreaseCounterCommand(this);
         }

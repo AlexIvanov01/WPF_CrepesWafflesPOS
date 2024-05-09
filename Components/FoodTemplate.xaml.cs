@@ -23,10 +23,20 @@ namespace CrepesWaffelsPOS.Components
     /// </summary>
     public partial class FoodTemplate : UserControl
     {
+        public FoodTemplateViewModel viewModel { get; set; }
         public FoodTemplate(FoodModel food)
         {
             InitializeComponent();
-            var viewModel = new FoodTemplateViewModel(food);
+            Picture.Source = food.Category switch
+            {
+                FoodCategory.Burger => new BitmapImage(new Uri(@"C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\Images\burger.jpeg", UriKind.Absolute)),
+                FoodCategory.Crepe => new BitmapImage(new Uri(@"C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\Images\crepe.jpg", UriKind.Absolute)),
+                FoodCategory.Pizza => new BitmapImage(new Uri(@"C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\Images\pizza.jpg", UriKind.Absolute)),
+                FoodCategory.Soup => new BitmapImage(new Uri(@"C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\Images\soup.jpeg", UriKind.Absolute)),
+                FoodCategory.Waffle => new BitmapImage(new Uri(@"C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\Images\waffle.jpg", UriKind.Absolute)),
+                _ => new BitmapImage(new Uri(@"C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\Images\crepe.jpg", UriKind.Absolute)),
+            };
+            viewModel = new FoodTemplateViewModel(food);
             DataContext = viewModel;
         }
     }

@@ -19,7 +19,6 @@ C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\CrepesWaffelsPOS.genruntimeconfig.cache
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\ref\CrepesWaffelsPOS.dll
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\Components\FoodTemplate.g.cs
-C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\Components\FoodTemplate.baml
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\Extras\ButtonTheme.baml
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\Views\RegisterView.g.cs

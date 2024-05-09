@@ -14,12 +14,6 @@ namespace CrepesWaffelsPOS.Views
             using (DataAccess da = new DataAccess())
             {
                 da.Database.EnsureCreated();
-                FoodModel model = new FoodModel()
-                {
-                    Name = "Pizza",
-                    Price = 5
-                };
-               // da.AddFood(model);
                 InitializeComponent();
                 var viewModel = new MainWindowViewModel(da);
                 DataContext = viewModel;

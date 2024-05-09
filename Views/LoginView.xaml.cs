@@ -1,5 +1,11 @@
 ﻿
+using System.Configuration;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Threading;
+using CrepesWaffelsPOS.Models;
+using CrepesWaffelsPOS.ViewModels;
 
 namespace CrepesWaffelsPOS.Views
 {
@@ -11,6 +17,8 @@ namespace CrepesWaffelsPOS.Views
         public LoginView()
         {
             InitializeComponent();
+            LoginViewModel viewModel = new LoginViewModel();
+            DataContext = viewModel;
         }
     }
 }

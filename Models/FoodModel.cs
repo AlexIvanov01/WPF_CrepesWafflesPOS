@@ -27,5 +27,6 @@ namespace CrepesWaffelsPOS.Models
         public int ID { get; set; }
         public string Name { get; set; } = "Default";
         public double Price { get; set; } = 0;
+        public FoodCategory Category { get; set; } = FoodCategory.Burger;
     }
 }

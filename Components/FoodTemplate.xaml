@@ -11,7 +11,10 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Border BorderBrush="Black" BorderThickness="1">
+    <Border
+        BorderBrush="Black"
+        BorderThickness="1"
+        CornerRadius="15">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*" />
@@ -65,10 +68,11 @@
             </StackPanel>
 
             <Image
+                x:Name="Picture"
                 Grid.Column="1"
                 MaxHeight="150"
                 Margin="10"
-                Source="C:\Програмиране\C#\MenuApp\MenuApp\Images\burger.jpg" />
+                d:Source="C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\Images\crepe.jpg" />
         </Grid>
     </Border>
 </UserControl>
