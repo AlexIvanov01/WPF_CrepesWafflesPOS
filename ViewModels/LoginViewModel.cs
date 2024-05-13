@@ -7,24 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using CrepesWaffelsPOS.Commands;
 using CrepesWaffelsPOS.Models;
+using CrepesWaffelsPOS.Views;
 
 namespace CrepesWaffelsPOS.ViewModels
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : BaseViewModel
     {
         private string _userName = string.Empty;
-        private string _password = string.Empty;
+        public LoginView View { get; set; }
 
-        public string Password
-        {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                OnPropertyChanged("Password");
-            }
-        }
         public string UserName
         {
             get { return _userName; }
@@ -35,15 +28,14 @@ namespace CrepesWaffelsPOS.ViewModels
             }
         }
 
-        public UserModel User { get; set; }
+        public LoginViewModel(LoginView view)
+        {
+            View = view;
+            LoginCommand = new CheckUserCredentialsCommand(this);
+            RegisterCommand = new SwitchToRegisterViewCommand(this);
+        }
         
         public ICommand LoginCommand { get; set; }
         public ICommand RegisterCommand { get; set; }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyname = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
     }
 }

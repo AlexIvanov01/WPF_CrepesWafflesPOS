@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using CrepesWaffelsPOS.Models;
+using CrepesWaffelsPOS.Views;
 using CrepesWaffelsPOS.ViewModels;
 
 namespace CrepesWaffelsPOS.Commands
@@ -35,10 +36,13 @@ namespace CrepesWaffelsPOS.Commands
             UserModel newUser = new UserModel(_registerViewModel.UserName,
                 _registerViewModel.View.Password, _registerViewModel.Balance);
 
-            MessageBox.Show($"{_registerViewModel.UserName} + {_registerViewModel.View.Password} + {_registerViewModel.Balance}");
+            newUser.HashPassword();
 
-           /* using (DataAccess da = new DataAccess())
+          //  MessageBox.Show($"{newUser.Username} + {newUser.Password} + {newUser.Balance}");
+
+            using (DataAccess da = new DataAccess())
             {
+                da.Database.EnsureCreated();
                 var users = new List<UserModel>(da.GetUsers());
                 bool usernameExists = users.Exists(user => user.Username == newUser.Username);
                 if (usernameExists)
@@ -48,8 +52,12 @@ namespace CrepesWaffelsPOS.Commands
                 else
                 {
                     da.AddUser(newUser);
+                    MessageBox.Show($"User {newUser.Username} created.");
+                    Window window = new MainWindow(newUser);
+                    window.Show();
+                    _registerViewModel.View.Close();
                 }
-            }*/
+            }
         }
 
         protected void OnCanExecuteChanged()

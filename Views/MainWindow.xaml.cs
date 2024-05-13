@@ -9,15 +9,11 @@ namespace CrepesWaffelsPOS.Views
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(UserModel user)
         {
-            using (DataAccess da = new DataAccess())
-            {
-                da.Database.EnsureCreated();
                 InitializeComponent();
-                var viewModel = new MainWindowViewModel(da);
+                var viewModel = new MainWindowViewModel(user);
                 DataContext = viewModel;
-            }
         }
     }
 }

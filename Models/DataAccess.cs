@@ -66,6 +66,16 @@ namespace CrepesWaffelsPOS.Models
                 .HasData(food4);
             modelBuilder.Entity<FoodModel>()
                 .HasData(food5);
+
+            var user = new UserModel()
+            {
+                Username = "Admin",
+                Password = "password",
+                Balance = 100
+            };
+
+            modelBuilder.Entity<UserModel>()
+                .HasData(user);
         }
 
         // Method to add a food item to the foods database

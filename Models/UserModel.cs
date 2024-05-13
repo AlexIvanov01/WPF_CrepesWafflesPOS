@@ -13,8 +13,6 @@ namespace CrepesWaffelsPOS.Models
     public class UserModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public  int ID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public double Balance { get; set; }
@@ -25,6 +23,9 @@ namespace CrepesWaffelsPOS.Models
             Password = password;
             Balance = balance;
         }
+
+        public UserModel() { }
+
         public void HashPassword()
         {
             // Compute hash from password bytes

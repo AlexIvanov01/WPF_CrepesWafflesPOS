@@ -19,11 +19,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace CrepesWaffelsPOS.ViewModels
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : BaseViewModel
     {
-        private readonly DataAccess _dbContext;
-        private ObservableCollection<FoodTemplate> _foods;
-        private string _order = "Empty order list.";
+        public ObservableCollection<FoodTemplate> _foods;
+        public string _order = "Empty order list.";
+        public UserModel curUser { get; set; }
+        public string Username => curUser.Username;
+        public double Balance => curUser.Balance;
 
         public string Order
         {
@@ -44,11 +46,12 @@ namespace CrepesWaffelsPOS.ViewModels
                 _foods = value;
             }
         }
-        public MainWindowViewModel(DataAccess dbContext)
+
+        public MainWindowViewModel(UserModel user)
         {
-            _dbContext = dbContext;
             _foods = new ObservableCollection<FoodTemplate>();
             LoadFoods();
+            curUser = user;
         }
         private void OnFoodTemplateCounterChanged(object? sender, PropertyChangedEventArgs e)
         {
@@ -62,24 +65,21 @@ namespace CrepesWaffelsPOS.ViewModels
         {
             try
             {
-                var FoodsList = _dbContext.GetFoods();
-                foreach (var food in FoodsList) 
+                using (DataAccess da = new DataAccess())
                 {
-                    var foodTemplate = new FoodTemplate(food);
-                    foodTemplate.viewModel.PropertyChanged += OnFoodTemplateCounterChanged;
-                    Foods.Add(foodTemplate);
+                    var FoodsList = da.GetFoods();
+                    foreach (var food in FoodsList)
+                    {
+                        var foodTemplate = new FoodTemplate(food);
+                        foodTemplate.viewModel.PropertyChanged += OnFoodTemplateCounterChanged;
+                        Foods.Add(foodTemplate);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading foods: {ex.Message}");
             }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyname = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
 
         public void GenerateReceipt()

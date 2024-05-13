@@ -15,7 +15,7 @@ using System.Windows;
 
 namespace CrepesWaffelsPOS.ViewModels
 {
-    public class RegisterViewModel : INotifyPropertyChanged
+    public class RegisterViewModel : BaseViewModel
     {
         private string _userName = string.Empty;
         private double _balance = 0;
@@ -46,12 +46,7 @@ namespace CrepesWaffelsPOS.ViewModels
         {
             View = view;
             CreateCommand = new CreateUserToDataBaseCommand(this);
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyname = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+            CancelCommand = new SwitchToLoginView(this);
         }
     }
 }

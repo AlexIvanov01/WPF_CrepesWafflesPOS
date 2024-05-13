@@ -16,7 +16,7 @@ using CrepesWaffelsPOS.Models;
 
 namespace CrepesWaffelsPOS.ViewModels
 {
-    public class FoodTemplateViewModel : INotifyPropertyChanged
+    public class FoodTemplateViewModel : BaseViewModel
     {
         private int _couneter = 0;
         public string Name => Food.Name;
@@ -41,11 +41,5 @@ namespace CrepesWaffelsPOS.ViewModels
 
         public ICommand IncrementCounterCommand { get; set; }
         public ICommand DecreaseCounterCommand { get; set; }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyname = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
     }
 }

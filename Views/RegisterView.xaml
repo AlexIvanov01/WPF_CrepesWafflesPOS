@@ -9,6 +9,7 @@
     Width="380"
     Height="600"
     ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Grid>
@@ -123,6 +124,7 @@
                     Background="White"
                     Opacity="0.5" />
                 <StackPanel Margin="0,50,0,0" Orientation="Horizontal">
+                    <Frame x:Name="MyFrame" />
                     <Button
                         Width="100"
                         Height="40"
