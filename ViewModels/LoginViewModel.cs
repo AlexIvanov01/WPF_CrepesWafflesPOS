@@ -37,5 +37,6 @@ namespace CrepesWaffelsPOS.ViewModels
         
         public ICommand LoginCommand { get; set; }
         public ICommand RegisterCommand { get; set; }
+        public ICommand OrderCommand { get; set; }
     }
 }

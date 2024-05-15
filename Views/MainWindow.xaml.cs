@@ -12,7 +12,7 @@ namespace CrepesWaffelsPOS.Views
         public MainWindow(UserModel user)
         {
                 InitializeComponent();
-                var viewModel = new MainWindowViewModel(user);
+                var viewModel = new MainWindowViewModel(this, user);
                 DataContext = viewModel;
         }
     }

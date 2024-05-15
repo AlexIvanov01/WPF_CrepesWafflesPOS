@@ -5,18 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using CrepesWaffelsPOS.ViewModels;
-using CrepesWaffelsPOS.Views;
 
 namespace CrepesWaffelsPOS.Commands
 {
-    public class SwitchToLoginView : ICommand
+    public class AddFoodCommand : ICommand
     {
-        private readonly RegisterViewModel _registerViewModel;
-        public SwitchToLoginView(RegisterViewModel viewModel)
-        {
-            _registerViewModel = viewModel;
-        }
         public event EventHandler? CanExecuteChanged;
 
         public bool CanExecute(object? parameter)
@@ -26,9 +19,7 @@ namespace CrepesWaffelsPOS.Commands
 
         public void Execute(object? parameter)
         {
-            Window window = new LoginView();
-            window.Show();
-            _registerViewModel.View.Close();
+            Window window = new Window();
         }
     }
 }

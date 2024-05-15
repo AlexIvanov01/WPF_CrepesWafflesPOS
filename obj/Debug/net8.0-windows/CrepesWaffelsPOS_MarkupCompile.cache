@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\App.xaml
-5-974437620
+6632175226
 
-211687684899
+24-185410620
 2161614194005
-Components\FoodTemplate.xaml;Extras\ButtonTheme.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\RegisterView.xaml;
+Components\FoodTemplate.xaml;Extras\ButtonTheme.xaml;Views\AddFoodView.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\RegisterView.xaml;
 
-False
+True
 

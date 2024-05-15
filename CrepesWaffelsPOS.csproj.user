@@ -10,6 +10,9 @@
     <Compile Update="Components\FoodTemplate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\AddFoodView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\FoodTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddFoodView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginView.xaml">

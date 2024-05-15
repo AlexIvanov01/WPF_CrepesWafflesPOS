@@ -46,7 +46,7 @@ namespace CrepesWaffelsPOS.ViewModels
         {
             View = view;
             CreateCommand = new CreateUserToDataBaseCommand(this);
-            CancelCommand = new SwitchToLoginView(this);
+            CancelCommand = new SwitchToLoginViewCommand(this);
         }
     }
 }

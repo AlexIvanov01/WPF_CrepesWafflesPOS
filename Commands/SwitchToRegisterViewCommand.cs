@@ -13,13 +13,14 @@ namespace CrepesWaffelsPOS.Commands
     public class SwitchToRegisterViewCommand : ICommand
     {
         private readonly LoginViewModel _loginViewModel;
+
         public event EventHandler? CanExecuteChanged;
 
         public SwitchToRegisterViewCommand(LoginViewModel viewModel)
         {
             _loginViewModel = viewModel;
         }
-
+        
         public bool CanExecute(object? parameter)
         {
             return true;

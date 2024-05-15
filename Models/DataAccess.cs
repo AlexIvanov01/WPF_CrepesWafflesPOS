@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace CrepesWaffelsPOS.Models
@@ -132,6 +133,28 @@ namespace CrepesWaffelsPOS.Models
             {
                 Console.WriteLine($"Error getting food items: {ex.Message}");
                 throw;
+            }
+        }
+
+        public void UpdateUserBalance(string username, double newBalance)
+        {
+            using (var transaction = Database.BeginTransaction())
+            {
+                try
+                {
+                    var user = Users.SingleOrDefault(u => u.Username == username);
+                    if (user != null)
+                    {
+                        user.Balance = newBalance;
+                        SaveChanges();
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
             }
         }
     }

@@ -1,31 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using CrepesWaffelsPOS.Commands;
 using CrepesWaffelsPOS.Components;
 using CrepesWaffelsPOS.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using CrepesWaffelsPOS.Views;
 
 namespace CrepesWaffelsPOS.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        public ObservableCollection<FoodTemplate> _foods;
-        public string _order = "Empty order list.";
+        public ObservableCollection<FoodTemplate> Foods {  get; set; }
+        private string _order = "Empty order list.";
         public UserModel curUser { get; set; }
         public string Username => curUser.Username;
         public double Balance => curUser.Balance;
+        public ICommand OrderCommand { get; set; }
+        public ICommand LogoutCommand { get; set; }
+        public ICommand AddFoodCommand { get; set; }
+        public ICommand AddToBalanceCommand { get; set; }
+        public MainWindow View { get; set; }
 
         public string Order
         {
@@ -38,26 +33,23 @@ namespace CrepesWaffelsPOS.ViewModels
         }
 
 
-        public ObservableCollection<FoodTemplate> Foods
+        public MainWindowViewModel(MainWindow view, UserModel user)
         {
-            get { return _foods; }
-            set
-            {
-                _foods = value;
-            }
-        }
-
-        public MainWindowViewModel(UserModel user)
-        {
-            _foods = new ObservableCollection<FoodTemplate>();
+            View = view;
+            Foods = new ObservableCollection<FoodTemplate>();
             LoadFoods();
             curUser = user;
+            OrderCommand = new CreateOrderCommand(this);
+            LogoutCommand = new SwitchToLoginViewCommand(this);
         }
+
+
         private void OnFoodTemplateCounterChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(FoodTemplateViewModel.Counter))
             {
                 GenerateReceipt();
+                OnPropertyChanged("Foods");
             }
         }
 

@@ -28,7 +28,10 @@
             </Border.Background>
         </Border>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
+        <StackPanel
+            Grid.Row="0"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
             <Image
                 Width="250"
                 Margin="10,10,20,0"
@@ -54,6 +57,18 @@
                 FontSize="20"
                 Text="$" />
         </StackPanel>
+        <Button
+            Grid.Row="0"
+            Width="100"
+            Height="50"
+            Margin="10,10,30,0"
+            HorizontalAlignment="Right"
+            Background="#fff8e8"
+            Command="{Binding LogoutCommand}"
+            Content="LOGOUT"
+            FontSize="20"
+            FontWeight="Bold"
+            Foreground="#3b1f1b" />
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -62,13 +77,7 @@
             </Grid.ColumnDefinitions>
 
             <ScrollViewer Grid.Column="0">
-                <ItemsControl ItemsSource="{Binding Foods}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <!-- <local2:FoodTemplate /> -->
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <ItemsControl ItemsSource="{Binding Foods}" />
             </ScrollViewer>
 
             <StackPanel Grid.Column="1">
@@ -85,6 +94,32 @@
             </StackPanel>
 
         </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button
+                Grid.Row="2"
+                Width="110"
+                Height="50"
+                Margin="30,0,10,0"
+                HorizontalAlignment="Right"
+                Background="#fff8e8"
+                Command="{Binding AddFoodCommand}"
+                Content="Add food*"
+                FontSize="20"
+                FontWeight="Bold"
+                Foreground="#3b1f1b" />
+            <Button
+                Grid.Row="2"
+                Width="150"
+                Height="50"
+                Margin="10,0,30,0"
+                HorizontalAlignment="Right"
+                Background="#fff8e8"
+                Command="{Binding AddToBallanceCommand}"
+                Content="Add to Balance*"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="#3b1f1b" />
+        </StackPanel>
 
         <Button
             Grid.Row="2"
@@ -93,6 +128,7 @@
             Margin="30,0,30,0"
             HorizontalAlignment="Right"
             Background="#fff8e8"
+            Command="{Binding OrderCommand}"
             Content="Order"
             FontSize="25"
             FontWeight="Bold"

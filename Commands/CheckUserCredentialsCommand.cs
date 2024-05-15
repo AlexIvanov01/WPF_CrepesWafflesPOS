@@ -50,7 +50,6 @@ namespace CrepesWaffelsPOS.Commands
                     loginUser.HashPassword();
                     if (loginUser.Password == user.Password)
                     {
-                        MessageBox.Show("Access granted!", "Login", MessageBoxButton.OK, MessageBoxImage.Information);
                         Window window = new MainWindow(user);
                         window.Show();
                         _loginViewModel.View.Close();
