@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace CrepesWaffelsPOS.Models
 {
@@ -18,68 +12,6 @@ namespace CrepesWaffelsPOS.Models
             optionsBuilder.UseSqlite("Data Source=app.db");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<FoodModel>().Property(e => e.ID).ValueGeneratedOnAdd();
-            var food1 = new FoodModel()
-            {
-                ID = 1,
-                Name = "Burger",
-                Price = 10,
-                Category = FoodCategory.Burger
-            };
-            var food2 = new FoodModel()
-            {
-                ID = 2,
-                Name = "Nutella and strawberry waffle",
-                Price = 7,
-                Category = FoodCategory.Waffle
-            };
-            var food3 = new FoodModel()
-            {
-                ID = 3,
-                Name = "Crepe Hat \"Vueltiao\"",
-                Price = 15,
-                Category = FoodCategory.Crepe
-            };
-            var food4 = new FoodModel()
-            {
-                ID = 4,
-                Name = "Mexican Soup with Chicken",
-                Price = 9,
-                Category = FoodCategory.Soup
-            };
-            var food5 = new FoodModel()
-            {
-                ID = 5,
-                Name = "Sicilian Pita",
-                Price = 11,
-                Category = FoodCategory.Pizza
-            };
-
-            modelBuilder.Entity<FoodModel>()
-                .HasData(food1);
-            modelBuilder.Entity<FoodModel>()
-                .HasData(food2);
-            modelBuilder.Entity<FoodModel>()
-                .HasData(food3);
-            modelBuilder.Entity<FoodModel>()
-                .HasData(food4);
-            modelBuilder.Entity<FoodModel>()
-                .HasData(food5);
-
-            var user = new UserModel()
-            {
-                Username = "Admin",
-                Password = "password",
-                Balance = 100
-            };
-
-            modelBuilder.Entity<UserModel>()
-                .HasData(user);
-        }
-
-        // Method to add a food item to the foods database
         public void AddFood(FoodModel food)
         {
             Foods.Add(food);
@@ -94,7 +26,7 @@ namespace CrepesWaffelsPOS.Models
                 throw;
             }
         }
-        // Method to get all food items from the foods database
+
         public List<FoodModel> GetFoods()
         {
             try
@@ -156,6 +88,66 @@ namespace CrepesWaffelsPOS.Models
                     throw;
                 }
             }
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FoodModel>().Property(e => e.ID).ValueGeneratedOnAdd();
+            var food1 = new FoodModel()
+            {
+                ID = 1,
+                Name = "Burger",
+                Price = 10,
+                Category = FoodCategory.Burger
+            };
+            var food2 = new FoodModel()
+            {
+                ID = 2,
+                Name = "Nutella and strawberry waffle",
+                Price = 7,
+                Category = FoodCategory.Waffle
+            };
+            var food3 = new FoodModel()
+            {
+                ID = 3,
+                Name = "Crepe Hat \"Vueltiao\"",
+                Price = 15,
+                Category = FoodCategory.Crepe
+            };
+            var food4 = new FoodModel()
+            {
+                ID = 4,
+                Name = "Mexican Soup with Chicken",
+                Price = 9,
+                Category = FoodCategory.Soup
+            };
+            var food5 = new FoodModel()
+            {
+                ID = 5,
+                Name = "Sicilian Pita",
+                Price = 11,
+                Category = FoodCategory.Pizza
+            };
+
+            modelBuilder.Entity<FoodModel>()
+                .HasData(food1);
+            modelBuilder.Entity<FoodModel>()
+                .HasData(food2);
+            modelBuilder.Entity<FoodModel>()
+                .HasData(food3);
+            modelBuilder.Entity<FoodModel>()
+                .HasData(food4);
+            modelBuilder.Entity<FoodModel>()
+                .HasData(food5);
+
+            var user = new UserModel()
+            {
+                Username = "Admin",
+                Password = "password",
+                Balance = 100
+            };
+
+            modelBuilder.Entity<UserModel>()
+                .HasData(user);
         }
     }
 }

@@ -33,9 +33,10 @@
             VerticalAlignment="Center"
             Orientation="Horizontal">
             <Image
+                x:Name="headerBanner"
                 Width="250"
                 Margin="10,10,20,0"
-                Source="C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\Images\header_banner.png" />
+                d:Source="C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\Images\header_banner.png" />
             <TextBlock
                 Margin="0,30,0,20"
                 FontSize="20"

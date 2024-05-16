@@ -2,13 +2,16 @@
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Configuration;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using CrepesWaffelsPOS.Models;
 using CrepesWaffelsPOS.ViewModels;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CrepesWaffelsPOS.Views
 {
@@ -32,6 +35,12 @@ namespace CrepesWaffelsPOS.Views
         public LoginView()
         {
             InitializeComponent();
+            string startupPath = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName);
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(startupPath + "/Images/logo.png");
+            bitmap.EndInit();
+            LoginImage.Source = bitmap;
             LoginViewModel viewModel = new LoginViewModel(this);
             DataContext = viewModel;
         }

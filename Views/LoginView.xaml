@@ -28,7 +28,10 @@
                 </Border.Background>
             </Border>
             <StackPanel VerticalAlignment="Center">
-                <Image Width="250" Source="C:\Програмиране\C#\MenuApp\MenuApp\Images\logo.png" />
+                <Image
+                    x:Name="LoginImage"
+                    Width="250"
+                    d:Source="C:\Програмиране\C#\MenuApp\MenuApp\Images\logo.png" />
                 <TextBlock
                     Margin="10"
                     HorizontalAlignment="Center"
