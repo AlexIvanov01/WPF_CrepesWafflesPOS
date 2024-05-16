@@ -13,7 +13,6 @@ namespace CrepesWaffelsPOS.Components
         public FoodTemplate(FoodModel food)
         {
             string startupPath = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName);
-            MessageBox.Show(startupPath + @"\Images\burger.jpeg");
             InitializeComponent();
             Picture.Source = food.Category switch
             {

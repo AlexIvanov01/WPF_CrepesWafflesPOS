@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using CrepesWaffelsPOS.Models;
@@ -37,8 +32,6 @@ namespace CrepesWaffelsPOS.Commands
                 _registerViewModel.View.Password, _registerViewModel.Balance);
 
             newUser.HashPassword();
-
-          //  MessageBox.Show($"{newUser.Username} + {newUser.Password} + {newUser.Balance}");
 
             using (DataAccess da = new DataAccess())
             {
