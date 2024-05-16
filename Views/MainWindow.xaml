@@ -114,7 +114,7 @@
                 Margin="10,0,30,0"
                 HorizontalAlignment="Right"
                 Background="#fff8e8"
-                Command="{Binding AddToBallanceCommand}"
+                Command="{Binding AddToBalanceCommand}"
                 Content="Add to Balance*"
                 FontSize="18"
                 FontWeight="Bold"

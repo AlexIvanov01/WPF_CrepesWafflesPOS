@@ -90,45 +90,37 @@
                 Opacity="0.5" />
             <Label
                 Margin="63,10,10,0"
-                Content="Name"
+                Content="Category:"
                 FontFamily="helvetica"
                 FontSize="18"
                 FontWeight="Light"
                 Foreground="White" />
             <StackPanel Orientation="Horizontal">
                 <ComboBox
-                    Width="235"
-                    Height="25"
+                    Width="255"
+                    Height="30"
                     Margin="63,0,0,0"
                     HorizontalAlignment="Center"
                     HorizontalContentAlignment="Left"
-                    Background="Transparent"
                     BorderThickness="0"
                     FontFamily="helvetica"
                     FontSize="20"
                     FontWeight="Light"
-                    Foreground="White"
+                    Foreground="Black"
                     ItemsSource="{Binding FoodTypes}"
                     Opacity="0.5"
-                    SelectedItem="{Binding SelectedType}" />
+                    SelectedItem="{Binding SelectedCategory}"/>
             </StackPanel>
-            <Border
-                Width="250"
-                Height="2"
-                Background="White"
-                Opacity="0.5" />
-            <StackPanel Margin="0,50,0,0" Orientation="Horizontal">
+            <StackPanel
+                Margin="0,50,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
                 <Button
                     Width="100"
                     Height="40"
                     Margin="60,0,60,0"
-                    Command="{Binding LoginCommand}"
-                    Content="LOGIN" />
-                <Button
-                    Width="100"
-                    Height="40"
-                    Command="{Binding RegisterCommand}"
-                    Content="REGISTER" />
+                    Command="{Binding AddCommand}"
+                    Content="ADD" />
             </StackPanel>
         </StackPanel>
     </Border>

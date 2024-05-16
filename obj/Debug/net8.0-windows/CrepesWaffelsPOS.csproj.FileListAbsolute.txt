@@ -68,4 +68,4 @@ C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\CrepesWaffelsPOS.sourcelink.json
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\CrepesWa.1B414252.Up2Date
 C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\Views\AddFoodView.g.cs
-C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\Views\Window1.g.cs
+C:\Програмиране\C#\CrepesWaffelsPOS\CrepesWaffelsPOS\obj\Debug\net8.0-windows\Views\AddFoodView.baml

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CrepesWaffelsPOS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0fde5b10b36d0f8def126602caf7a94ed5d77ef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d37a88c583dc5c512002f497ed2a6507f6318c42")]
 [assembly: System.Reflection.AssemblyProductAttribute("CrepesWaffelsPOS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CrepesWaffelsPOS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

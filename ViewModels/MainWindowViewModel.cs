@@ -41,10 +41,12 @@ namespace CrepesWaffelsPOS.ViewModels
             curUser = user;
             OrderCommand = new CreateOrderCommand(this);
             LogoutCommand = new SwitchToLoginViewCommand(this);
+            AddFoodCommand = new SwitchToAddFoodViewCommand(this);
+            AddToBalanceCommand = new AddToBalanceCommand(this);
         }
 
 
-        private void OnFoodTemplateCounterChanged(object? sender, PropertyChangedEventArgs e)
+        public void OnFoodTemplateCounterChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(FoodTemplateViewModel.Counter))
             {
